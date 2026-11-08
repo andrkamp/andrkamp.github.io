@@ -92,15 +92,33 @@
     <h3>Panos K.</h3>
     <h3>Jack B.</h3>
   </div>
-
-  <!--
-  <iframe width="320" height="200"
-  src="https://www.youtube-nocookie.com/embed/qQzdAsjWGPg?loop=1&playlist=qQzdAsjWGPg"
-  title="Background song"
-  allow="encrypted-media; picture-in-picture"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen></iframe>-->
   
   <h4>ver 1.2 &mdash; show code + video websites</h4>
+
+  <!-- Background music: hidden player, no controls shown -->
+  <audio id="bg-music" src="background-music.mp3" autoplay loop preload="auto"></audio>
+  <script>
+    // Browsers usually block sound until the visitor interacts with the page.
+    // Try to play right away; if blocked, start on the first click, tap, or key press.
+    (function () {
+      var music = document.getElementById('bg-music');
+      music.volume = 0.4; // 0.0 (silent) to 1.0 (full volume)
+
+      function start() {
+        music.play().then(function () {
+          ['pointerdown', 'keydown', 'touchstart'].forEach(function (evt) {
+            document.removeEventListener(evt, start);
+          });
+        }).catch(function () { /* still blocked, wait for interaction */ });
+      }
+
+      ['pointerdown', 'keydown', 'touchstart'].forEach(function (evt) {
+        document.addEventListener(evt, start);
+      });
+
+      start();
+    })();
+  </script>
+  
 </body>
 </html>
