@@ -84,6 +84,7 @@
     <button role="tab" id="tab-videos" aria-controls="panel-videos" aria-selected="false" tabindex="-1">Videos</button>
     <button role="tab" id="tab-code" aria-controls="panel-code" aria-selected="false" tabindex="-1">Code</button>
     <button role="tab" id="tab-articles" aria-controls="panel-articles" aria-selected="false" tabindex="-1">Articles</button>
+    <button role="tab" id="tab-acknowledgements" aria-controls="panel-acknowledgements" aria-selected="false" tabindex="-1">Thanks</button>
   </div>
 
   <!-- Games tab -->
@@ -177,18 +178,20 @@
     </article>
   </section>
 
-  <!-- Always visible below the tabs -->
-  <h2>Acknowledgements</h2>
-  <div class="credits">
-    <h3>Creator: Andreas K.</h3>
-    <h3>Editor: Panos K.</h3>
-    <h3>Idea: Jack B.</h3>
-    <h3>Fav viewer: Kyle</h3>
+  <!-- Acknowledgements tab -->
+  <section class="panel" id="panel-acknowledgements" role="tabpanel" aria-labelledby="tab-acknowledgements" tabindex="0" hidden>
+    <h2>Acknowledgements</h2>
+    <div class="credits">
+      <h3>Creator: Andreas K.</h3>
+      <h3>Editor: Panos K.</h3>
+      <h3>Idea: Jack B.</h3>
+      <h3>Fav viewer: Kyle</h3>
 
-    <h3>Thanks to: Panos K., Jack B.</h3>
-  </div>
+      <h3>Thanks to: Panos K., Jack B.</h3>
+    </div>
+  </section>
 
-  <h4>ver 1.5 &mdash; tabs for games, videos, code + articles</h4>
+  <h4>ver 1.6 &mdash; tabs for games, videos, code, articles + acknowledgements</h4>
 
   <!-- Background music: hidden player, no controls shown -->
   <audio id="bg-music" src="background-music.mp3" autoplay loop preload="auto"></audio>
@@ -197,7 +200,7 @@
     // ----- Tabs -----
     // Clicking a tab shows its panel and hides the others.
     // Arrow keys, Home and End move between tabs (keyboard accessible).
-    // The URL hash (#games, #videos, #code, #articles) remembers the open tab.
+    // The URL hash (#games, #videos, #code, #articles, #acknowledgements) remembers the open tab.
     (function () {
       var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
 
