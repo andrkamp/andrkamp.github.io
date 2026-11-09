@@ -17,6 +17,39 @@
     h2 { font-size: 1.4rem; margin: 1.2em 0 0.3em; }
     h3 { font-size: 1.05rem; font-weight: 600; margin: 0.2em 0; }
     h4 { color: #555; margin-top: 2em; }
+    a { color: #1565c0; }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      border-bottom: 2px solid #1565c0;
+      margin-top: 16px;
+    }
+    .tabs button {
+      font: inherit;
+      font-weight: 600;
+      padding: 8px 16px;
+      border: 2px solid transparent;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      background: #e8eef7;
+      color: #1a1a1a;
+      cursor: pointer;
+    }
+    .tabs button:hover { background: #d3e0f2; }
+    .tabs button[aria-selected="true"] {
+      background: #1565c0;
+      color: #fff;
+    }
+    .tabs button:focus-visible {
+      outline: 3px solid #f9a825;
+      outline-offset: 2px;
+    }
+    .panel { padding: 8px 0 16px; }
+
+    /* Link rows with a logo */
     .game {
       display: flex;
       align-items: center;
@@ -29,97 +62,174 @@
       object-fit: contain;
       flex: none;
     }
-    a { color: #1565c0; }
+    .code-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Articles */
+    article { margin-bottom: 1.5em; }
+    article p { margin: 0.4em 0; }
+
     .credits h3 { font-weight: 400; }
   </style>
 </head>
 <body>
   <h1>sup</h1>
-  <h1>Games</h1>
 
-  <div class="game">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Roblox_Corporation_2025_logo.svg/250px-Roblox_Corporation_2025_logo.svg.png" alt="Roblox logo">
-    <a href="https://www.roblox.com/" target="_blank" rel="noopener noreferrer" title="Roblox website">Roblox</a>
+  <!-- Tab buttons -->
+  <div class="tabs" role="tablist" aria-label="Site sections">
+    <button role="tab" id="tab-games" aria-controls="panel-games" aria-selected="true">Games</button>
+    <button role="tab" id="tab-videos" aria-controls="panel-videos" aria-selected="false" tabindex="-1">Videos</button>
+    <button role="tab" id="tab-code" aria-controls="panel-code" aria-selected="false" tabindex="-1">Code</button>
+    <button role="tab" id="tab-articles" aria-controls="panel-articles" aria-selected="false" tabindex="-1">Articles</button>
   </div>
 
-  <div class="game">
-    <img src="https://iconape.com/wp-content/files/iu/380457/svg/380457.png" alt="Minecraft logo">
-    <a href="https://www.minecraft.net/en-us" target="_blank" rel="noopener noreferrer" title="Minecraft website">Minecraft</a>
-  </div>
+  <!-- Games tab -->
+  <section class="panel" id="panel-games" role="tabpanel" aria-labelledby="tab-games" tabindex="0">
+    <h2>Games</h2>
 
-  <div class="game">
-    <img src="https://gamescout.gg/wp-content/uploads/2023/10/game_fortnite.png" alt="Fortnite logo">
-    <a href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer" title="Fortnite website">Fortnite</a>
-  </div>
+    <div class="game">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Roblox_Corporation_2025_logo.svg/250px-Roblox_Corporation_2025_logo.svg.png" alt="Roblox logo">
+      <a href="https://www.roblox.com/" target="_blank" rel="noopener noreferrer" title="Roblox website">Roblox</a>
+    </div>
 
-  <div class="game">
-    <img src="https://kevin.games/assets/images/new/geometry-dash.png" alt="Geometry Dash logo">
-    <a href="https://geodash.org/" target="_blank" rel="noopener noreferrer" title="Geometry Dash website">Geometry Dash</a>
-  </div>
+    <div class="game">
+      <img src="https://iconape.com/wp-content/files/iu/380457/svg/380457.png" alt="Minecraft logo">
+      <a href="https://www.minecraft.net/en-us" target="_blank" rel="noopener noreferrer" title="Minecraft website">Minecraft</a>
+    </div>
 
-  <h1>Video websites</h1>
+    <div class="game">
+      <img src="https://gamescout.gg/wp-content/uploads/2023/10/game_fortnite.png" alt="Fortnite logo">
+      <a href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer" title="Fortnite website">Fortnite</a>
+    </div>
 
-  <div class="game">
-    <img src="https://logos-world.net/wp-content/uploads/2020/04/TikTok-Logo-2017-2018-700x394.png" alt="TikTok logo">
-    <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" title="TikTok website">TikTok</a>
-  </div>
+    <div class="game">
+      <img src="https://kevin.games/assets/images/new/geometry-dash.png" alt="Geometry Dash logo">
+      <a href="https://geodash.org/" target="_blank" rel="noopener noreferrer" title="Geometry Dash website">Geometry Dash</a>
+    </div>
 
-  <div class="game">
-    <img src="https://www.sigmaxi.org/images/default-source/default-album/youtube_200.jpg?sfvrsn=858fb458_0" alt="YouTube logo">
-    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" title="YouTube website">YouTube</a>
-  </div>
+    <h3>My games will come in 7 months</h3>
+  </section>
 
-  <div class="game">
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/048/116/367/small/netflix-logo-icon-free-png.png" alt="Netflix logo">
-    <a href="https://www.netflix.com/" target="_blank" rel="noopener noreferrer" title="Netflix website">Netflix</a>
-  </div>
+  <!-- Videos tab -->
+  <section class="panel" id="panel-videos" role="tabpanel" aria-labelledby="tab-videos" tabindex="0" hidden>
+    <h2>Video websites</h2>
 
-  <h1>Code</h1>
-  <img src="https://img.itch.zone/aW1nLzIzNzA0NDg3LmpwZWc=/original/4bg57g.jpeg" alt=hacking image </a>
-    
-    <a href="https://raw.githubusercontent.com/andrkamp/andrkamp.github.io/refs/heads/main/index.html" target="_blank" rel="noopener noreferrer" title="Page source code">See the code for this page</a>
-  </p>
-  <h3>wana look like your hacking/coding then click <h3>
-<a href="https://hackertyper.com/">here</a>
-  <h2>My games will come in 7 months</h2>
-<h1>articles<h1>
-  <h2>how the chocolate cokie was made<h2>
-    <h3>The chocolate cookie is very popular but it was created with an easy idea: what happens if you combine chocolate with a cookie. The most famous chocolate cookie was made by Ruth Graves in 1930s Wakefield. She also owned the Toll House Inn in Massachusetts. Ruth decided to add pieces of chocolate in cookies. She thought the chocolate would melt but instead the chocolate kept its shape. That's how she made the chocolate cookie. The cookie had butter sugar, eggs, flour, and other ingredients. Soon it was published in the news. You can add nuts and other things and now it is enjoyed by many.<h3>
-      <h2> how people in england get books<h2>
-        <h3> England is mainly island and it is surrounded by water. This can also cause trouble getting books. The Blackpool library wanted to fix that and that’s why they decided to use wheelbarrows and sometimes donkeys . Or if librarians don’t have donkeys librarians will walk in pairs . There is share a book for people in Gloucester . Share A Book travels a van to a countryside that doesn't have many people who can any access to libraries. This is why the library  important and why people are happy.<h3>
-<h2>how thiland gets books<h2>
-<h3>Thailand is in Southeast Asia . Thailand has many remote villages in the jungle. There are also mountainous regions.   Getting books to people in Thailand is hard because the library can only be reached by foot and it's usually rainy. But they solved that challenge like this :The Cha-gamy Oklahoma Oregon tried to use elephants and Librarian’s succeeded because elephants  were already being used to carry logs and plow crops. Librarians decided they will stay in each village for 2-3 days to deliver books. They knew it was dry in January and February, hot in March and May and wet from June to October so weather wouldn't stop elephants and even if it was rainy elephants can travel through mud . They succeeded to overcome the challenge of getting books to children. This is why the children in Thailand are happy and why the library is important.<h3>
-  <h2>how elictricity was invented<h2>
-<h3>
- Long ago, people noticed static electricity when materials  were rubbed together. In the 1700s scientists started studying electricity more carefully. Benjamin Franklin demonstrated that lightning was electrical with a kite experiment.
-A major breakthrough came in 1800 when Alessandro Volta created the first battery. Scientists discovered that electricity could also be produced using magnets and motion. In 1831, Michael Faraday demonstrated electromagnetic induction, showing that moving a magnet through a coil of wire could generate electricity. This discovery became the foundation of many modern generators.
-During the late 1800s, inventors such as Thomas Edison and Nikola Tesla helped develop electrical systems. Power stations began to produce large amounts of electricity. Electricity could then travel through wires to homes, businesses, and factories.
-Even though the technology has changed greatly, the basic goal remains the same: converting another form of energy into electrical energy that people can use.<h3>
+    <div class="game">
+      <img src="https://logos-world.net/wp-content/uploads/2020/04/TikTok-Logo-2017-2018-700x394.png" alt="TikTok logo">
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" title="TikTok website">TikTok</a>
+    </div>
 
+    <div class="game">
+      <img src="https://www.sigmaxi.org/images/default-source/default-album/youtube_200.jpg?sfvrsn=858fb458_0" alt="YouTube logo">
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" title="YouTube website">YouTube</a>
+    </div>
 
+    <div class="game">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/048/116/367/small/netflix-logo-icon-free-png.png" alt="Netflix logo">
+      <a href="https://www.netflix.com/" target="_blank" rel="noopener noreferrer" title="Netflix website">Netflix</a>
+    </div>
+  </section>
 
+  <!-- Code tab -->
+  <section class="panel" id="panel-code" role="tabpanel" aria-labelledby="tab-code" tabindex="0" hidden>
+    <h2>Code</h2>
 
+    <img class="code-img" src="https://img.itch.zone/aW1nLzIzNzA0NDg3LmpwZWc=/original/4bg57g.jpeg" alt="Hacking image">
 
+    <p>
+      <a href="https://raw.githubusercontent.com/andrkamp/andrkamp.github.io/refs/heads/main/index.html" target="_blank" rel="noopener noreferrer" title="Page source code">See the code for this page</a>
+    </p>
 
+    <p>
+      Wanna look like you're hacking/coding? Then click
+      <a href="https://hackertyper.com/" target="_blank" rel="noopener noreferrer" title="Hacker Typer">here</a>.
+    </p>
+  </section>
 
+  <!-- Articles tab -->
+  <section class="panel" id="panel-articles" role="tabpanel" aria-labelledby="tab-articles" tabindex="0" hidden>
+    <h2>Articles</h2>
 
-  <h1>Acknowledgements</h1>
+    <article>
+      <h3>How the chocolate cookie was made</h3>
+      <p>The chocolate cookie is very popular, but it was created with an easy idea: what happens if you combine chocolate with a cookie? The most famous chocolate cookie was made by Ruth Graves Wakefield in the 1930s. She also owned the Toll House Inn in Massachusetts. Ruth decided to add pieces of chocolate to cookies. She thought the chocolate would melt, but instead the chocolate kept its shape. That's how she made the chocolate cookie. The cookie had butter, sugar, eggs, flour, and other ingredients. Soon it was published in the news. You can add nuts and other things, and now it is enjoyed by many.</p>
+    </article>
+
+    <article>
+      <h3>How people in England get books</h3>
+      <p>England is mainly an island, and it is surrounded by water. This can cause trouble getting books. The Blackpool library wanted to fix that, and that's why they decided to use wheelbarrows and sometimes donkeys. If librarians don't have donkeys, they walk in pairs. There is Share A Book for people in Gloucester. Share A Book takes a van to countryside areas where not many people can access libraries. This is why the library is important and why people are happy.</p>
+    </article>
+
+    <article>
+      <h3>How Thailand gets books</h3>
+      <p>Thailand is in Southeast Asia. Thailand has many remote villages in the jungle. There are also mountainous regions. Getting books to people in Thailand is hard because the library can only be reached by foot, and it's usually rainy. But they solved that challenge like this: the Cha-gamy Oklahoma Oregon tried to use elephants, and the librarians succeeded because elephants were already being used to carry logs and plow crops. Librarians decided they would stay in each village for 2&ndash;3 days to deliver books. They knew it was dry in January and February, hot from March to May, and wet from June to October, so the weather wouldn't stop the elephants. Even if it was rainy, elephants can travel through mud. They overcame the challenge of getting books to children. This is why the children in Thailand are happy and why the library is important.</p>
+    </article>
+
+    <article>
+      <h3>How electricity was invented</h3>
+      <p>Long ago, people noticed static electricity when materials were rubbed together. In the 1700s, scientists started studying electricity more carefully. Benjamin Franklin demonstrated that lightning was electrical with a kite experiment.</p>
+      <p>A major breakthrough came in 1800 when Alessandro Volta created the first battery. Scientists discovered that electricity could also be produced using magnets and motion. In 1831, Michael Faraday demonstrated electromagnetic induction, showing that moving a magnet through a coil of wire could generate electricity. This discovery became the foundation of many modern generators.</p>
+      <p>During the late 1800s, inventors such as Thomas Edison and Nikola Tesla helped develop electrical systems. Power stations began to produce large amounts of electricity. Electricity could then travel through wires to homes, businesses, and factories.</p>
+      <p>Even though the technology has changed greatly, the basic goal remains the same: converting another form of energy into electrical energy that people can use.</p>
+    </article>
+  </section>
+
+  <!-- Always visible below the tabs -->
+  <h2>Acknowledgements</h2>
   <div class="credits">
     <h3>Creator: Andreas K.</h3>
     <h3>Editor: Panos K.</h3>
     <h3>Idea: Jack B.</h3>
     <h3>Fav viewer: Kyle</h3>
 
-    <h2>Thanks to:</h2>
-    <h3>Panos K.</h3>
-    <h3>Jack B.</h3>
+    <h3>Thanks to: Panos K., Jack B.</h3>
   </div>
-  
-  <h4>ver 1.4 &mdash; show code + video websites + background music +articles(fixed errors too)</h4>
+
+  <h4>ver 1.5 &mdash; tabs for games, videos, code + articles</h4>
 
   <!-- Background music: hidden player, no controls shown -->
   <audio id="bg-music" src="background-music.mp3" autoplay loop preload="auto"></audio>
+
   <script>
+    // ----- Tabs -----
+    // Clicking a tab shows its panel and hides the others.
+    // Arrow keys, Home and End move between tabs (keyboard accessible).
+    // The URL hash (#games, #videos, #code, #articles) remembers the open tab.
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+
+      function selectTab(tab, moveFocus) {
+        tabs.forEach(function (t) {
+          var selected = (t === tab);
+          t.setAttribute('aria-selected', selected ? 'true' : 'false');
+          t.tabIndex = selected ? 0 : -1;
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !selected;
+        });
+        if (moveFocus) { tab.focus(); }
+        history.replaceState(null, '', '#' + tab.id.replace('tab-', ''));
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { selectTab(tab, false); });
+        tab.addEventListener('keydown', function (e) {
+          var next = null;
+          if (e.key === 'ArrowRight') { next = tabs[(i + 1) % tabs.length]; }
+          else if (e.key === 'ArrowLeft') { next = tabs[(i - 1 + tabs.length) % tabs.length]; }
+          else if (e.key === 'Home') { next = tabs[0]; }
+          else if (e.key === 'End') { next = tabs[tabs.length - 1]; }
+          if (next) { e.preventDefault(); selectTab(next, true); }
+        });
+      });
+
+      // Open the tab named in the URL, e.g. ak-game15.com/#articles
+      var fromHash = document.getElementById('tab-' + location.hash.slice(1));
+      if (fromHash && tabs.indexOf(fromHash) !== -1) { selectTab(fromHash, false); }
+    })();
+
+    // ----- Background music -----
     // Browsers usually block sound until the visitor interacts with the page.
     // Try to play right away; if blocked, start on the first click, tap, or key press.
     (function () {
@@ -141,6 +251,5 @@ Even though the technology has changed greatly, the basic goal remains the same:
       start();
     })();
   </script>
-  
 </body>
 </html>
