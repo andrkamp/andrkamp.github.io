@@ -18,12 +18,31 @@
     <button role="tab" id="tab-articles" aria-controls="panel-articles" aria-selected="false" tabindex="-1">Articles</button>
     <button role="tab" id="tab-acknowledgements" aria-controls="panel-acknowledgements" aria-selected="false" tabindex="-1">Acknowledgements</button>
     <button role="tab" id="tab-math" aria-controls="panel-math" aria-selected="false" tabindex="-1">math</button>
-     <button role="tab" id="tab-otherlinks" aria-controls="panel-otherlinks" aria-selected="false" tabindex="-1">Other links</button>
+    <button role="tab" id="tab-otherlinks" aria-controls="panel-otherlinks" aria-selected="false" tabindex="-1">Other links</button>
   </div>
 
   <!-- Games tab -->
   <section class="panel" id="panel-games" role="tabpanel" aria-labelledby="tab-games" tabindex="0">
     <h2>Games</h2>
+
+    <!-- Car Maze game (code in maze-game.js, pictures in the img folder) -->
+    <div class="maze-game">
+      <h3>Car Maze</h3>
+      <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys on your keyboard to drive.</p>
+
+      <div class="maze-bar">
+        <button type="button" id="maze-start">Start</button>
+        <span id="maze-timer">Time: 0.0 s</span>
+        <span id="maze-best"></span>
+      </div>
+
+      <canvas id="maze-canvas" width="480" height="560" role="img" aria-label="Car maze game board"></canvas>
+
+      <p id="maze-status" aria-live="polite">Press Start to play.</p>
+    </div>
+
+    <!-- Links to other games -->
+    <h3>Other games</h3>
 
     <div class="game">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Roblox_Corporation_2025_logo.svg/250px-Roblox_Corporation_2025_logo.svg.png" alt="Roblox logo">
@@ -44,32 +63,12 @@
       <img src="https://kevin.games/assets/images/new/geometry-dash.png" alt="Geometry Dash logo">
       <a href="https://geodash.org/" target="_blank" rel="noopener noreferrer" title="Geometry Dash website">Geometry Dash</a>
     </div>
-      <div class="game">
-<img src="https://www.minikoyuncu.org/wp-content/uploads/2025/11/thief-puzzle.png" alt="thief puzzle image">
-<a href="https://www.crazygames.com/game/thief-puzzle" title="thief puzzle website">thief puzzle</a>
-        <!-- Car Maze game (code in maze-game.js, pictures in the images folder) -->
-    <h2>Car Maze</h2>
-    <div class="maze-game">
-      <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys or W A S D. On a phone, use the arrow buttons under the game.</p>
 
-      <div class="maze-bar">
-        <button type="button" id="maze-start">Start</button>
-        <span id="maze-timer">Time: 0.0 s</span>
-        <span id="maze-best"></span>
-      </div>
-
-      <canvas id="maze-canvas" width="480" height="560" role="img" aria-label="Car maze game board"></canvas>
-
-      <p id="maze-status" aria-live="polite">Press Start to play.</p>
-
-      <div class="maze-pad" role="group" aria-label="Driving buttons">
-        <button type="button" data-dir="up" aria-label="Drive up">&#9650;</button>
-        <button type="button" data-dir="left" aria-label="Drive left">&#9664;</button>
-        <button type="button" data-dir="down" aria-label="Drive down">&#9660;</button>
-        <button type="button" data-dir="right" aria-label="Drive right">&#9654;</button>
-      </div>
+    <div class="game">
+      <img src="https://www.minikoyuncu.org/wp-content/uploads/2025/11/thief-puzzle.png" alt="Thief Puzzle logo">
+      <a href="https://www.crazygames.com/game/thief-puzzle" target="_blank" rel="noopener noreferrer" title="Thief Puzzle website">Thief Puzzle</a>
     </div>
-        
+
     <p>More games coming soon...</p>
   </section>
 
@@ -149,32 +148,33 @@
     </div>
   </section>
 
-  <!-- ---other links tab---- -->
-   <section class="panel" id="panel-otherlinks" role="tabpanel" aria-labelledby="tab-otherlinks" tabindex="6">
-     <div class="otherlinks">
-       <h2> Want to go to jack.b's website?</h2>
-       <p>Then click <a href="https://jackburkes.com/">here</a> </p>
-     </div>
-   </section>
-
-  <!-- math tab -->
+  <!-- Math tab -->
   <section class="panel" id="panel-math" role="tabpanel" aria-labelledby="tab-math" tabindex="0" hidden>
-    <h1>math</h1>
-   <h2>4th grade</h2> 
-    <h2>division with 3 dijets</h2>
-    <h3>first you need to write a square box put 248 in it (for 248 ivided by 4) and 4 outside the box can you do 2divided by 4 no! so reveal the 4 can you do 24 divided by 4 yes 6 so write a 6 above 4 and 0 above 8 do 60 times 4 240 do 248-240 then do 8 divided by 4 and add the two with the 60= 62 so thats the answer (also dont care of leftovers for the division in this) </h3>
+    <h2>math</h2>
+    <h3>4th grade</h3>
+    <h3>division with 3 dijets</h3>
+    <p>first you need to write a square box put 248 in it (for 248 ivided by 4) and 4 outside the box can you do 2divided by 4 no! so reveal the 4 can you do 24 divided by 4 yes 6 so write a 6 above 4 and 0 above 8 do 60 times 4 240 do 248-240 then do 8 divided by 4 and add the two with the 60= 62 so thats the answer (also dont care of leftovers for the division in this)</p>
+  </section>
+
+  <!-- Other links tab -->
+  <section class="panel" id="panel-otherlinks" role="tabpanel" aria-labelledby="tab-otherlinks" tabindex="0" hidden>
+    <div class="otherlinks">
+      <h2>Want to go to Jack B.'s website?</h2>
+      <p>Then click <a href="https://jackburkes.com/" target="_blank" rel="noopener noreferrer" title="Jack B.'s website">here</a>.</p>
     </div>
   </section>
-    
-  <h4>ver 1.8 &mdash; tabs for games, videos, code, articles, acknowledgements,feedback +other links</h4>
+
+  <h4>ver 1.9 &mdash; car maze game at the top of games + fixed layout</h4>
+
   <!-- Tab switching code lives in tabs.js (same folder as this page) -->
   <script src="tabs.js"></script>
-  
+
   <!-- Car Maze game code lives in maze-game.js (same folder as this page) -->
   <script src="maze-game.js"></script>
-    
+
   <!-- Background music: hidden player, no controls shown -->
   <audio id="bg-music" src="background-music.mp3" autoplay loop preload="auto"></audio>
+
   <!-- ----- Background music script ----- -->
   <script>
     // Browsers usually block sound until the visitor interacts with the page.
@@ -197,7 +197,6 @@
 
       start();
     })();
-  
   </script>
 </body>
 </html>
