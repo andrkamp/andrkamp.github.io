@@ -68,3 +68,59 @@ article p { margin: 0.4em 0; }
 
 /* ----- Acknowledgements ----- */
 .credits h3 { font-weight: 400; }
+
+
+/* ----- Car Maze game ----- */
+.maze-game { margin: 12px 0 24px; }
+.maze-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 8px 0;
+}
+.maze-bar button,
+.maze-pad button {
+  font: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #1565c0;
+  color: #fff;
+  cursor: pointer;
+}
+.maze-bar button { padding: 8px 20px; }
+.maze-bar button:hover:not(:disabled),
+.maze-pad button:hover { background: #0d47a1; }
+.maze-bar button:disabled { background: #90a4ae; cursor: default; }
+.maze-bar button:focus-visible,
+.maze-pad button:focus-visible {
+  outline: 3px solid #f9a825;
+  outline-offset: 2px;
+}
+#maze-timer { font-weight: 700; font-variant-numeric: tabular-nums; }
+#maze-best { color: #2e7d32; font-weight: 600; }
+#maze-canvas {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border: 3px solid #2e7d32;
+  border-radius: 8px;
+  background: #4caf50;
+}
+.maze-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 56px);
+  gap: 6px;
+  margin-top: 8px;
+  touch-action: none;   /* holding a button shouldn't scroll or zoom the page */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.maze-pad button { font-size: 1.4rem; }
+.maze-pad [data-dir="up"]    { grid-column: 2; grid-row: 1; }
+.maze-pad [data-dir="left"]  { grid-column: 1; grid-row: 2; }
+.maze-pad [data-dir="down"]  { grid-column: 2; grid-row: 2; }
+.maze-pad [data-dir="right"] { grid-column: 3; grid-row: 2; }
