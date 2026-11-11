@@ -1,7 +1,7 @@
 // ----- Car Maze game -----
 // Drive the car from the start (bottom) to the checkered flag (top).
 // Touching a tree, the spikes, or the edge of the board ends the run.
-// Controls: the arrow keys on the keyboard.
+// Controls: arrow keys or W A S D, or the on-screen arrow buttons on phones.
 (function () {
   var canvas = document.getElementById('maze-canvas');
   if (!canvas || !canvas.getContext) { return; }
@@ -45,7 +45,7 @@
   canvas.width = COLS * TILE;
   canvas.height = ROWS * TILE;
 
-  // ----- Images (from the img folder) -----
+  // ----- Images (from the images folder) -----
   var images = {};
   ['car', 'road', 'grass', 'tree', 'spikes', 'finish'].forEach(function (name) {
     var img = new Image();
@@ -244,12 +244,12 @@
     requestAnimationFrame(loop);
   }
 
-  // ----- Keyboard controls (arrow keys) -----
+  // ----- Keyboard controls -----
   var KEY_DIRS = {
-    'ArrowUp': 'up',
-    'ArrowDown': 'down',
-    'ArrowLeft': 'left',
-    'ArrowRight': 'right'
+    'ArrowUp': 'up', 'w': 'up', 'W': 'up',
+    'ArrowDown': 'down', 's': 'down', 'S': 'down',
+    'ArrowLeft': 'left', 'a': 'left', 'A': 'left',
+    'ArrowRight': 'right', 'd': 'right', 'D': 'right'
   };
 
   document.addEventListener('keydown', function (e) {
@@ -266,6 +266,21 @@
   });
 
   window.addEventListener('blur', clearKeys);
+
+  // ----- On-screen buttons (phones and tablets) -----
+  Array.prototype.forEach.call(document.querySelectorAll('.maze-pad [data-dir]'), function (btn) {
+    var dir = btn.getAttribute('data-dir');
+    function press(e) {
+      e.preventDefault();
+      keys[dir] = true;
+      if (btn.setPointerCapture && e.pointerId !== undefined) { btn.setPointerCapture(e.pointerId); }
+    }
+    function release() { keys[dir] = false; }
+    btn.addEventListener('pointerdown', press);
+    btn.addEventListener('pointerup', release);
+    btn.addEventListener('pointercancel', release);
+    btn.addEventListener('lostpointercapture', release);
+  });
 
   startBtn.addEventListener('click', startGame);
 
