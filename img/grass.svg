@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Grass tile -->
+  <rect width="40" height="40" fill="#4caf50"/>
+  <!-- Grass blades -->
+  <path d="M5 12 l2 -4 l2 4 M24 8 l2 -4 l2 4 M14 30 l2 -4 l2 4 M31 25 l2 -4 l2 4 M4 37 l2 -4 l2 4"
+        stroke="#388e3c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+</svg>

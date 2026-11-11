@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Top-down red car, front pointing up -->
+  <!-- Wheels -->
+  <rect x="7" y="7" width="5" height="9" rx="2" fill="#212121"/>
+  <rect x="28" y="7" width="5" height="9" rx="2" fill="#212121"/>
+  <rect x="7" y="25" width="5" height="9" rx="2" fill="#212121"/>
+  <rect x="28" y="25" width="5" height="9" rx="2" fill="#212121"/>
+  <!-- Body -->
+  <rect x="10" y="3" width="20" height="34" rx="7" fill="#e53935" stroke="#8e0000" stroke-width="1.5"/>
+  <!-- Windshield -->
+  <path d="M13 12 L27 12 L25 18 L15 18 Z" fill="#90caf9"/>
+  <!-- Roof -->
+  <rect x="14" y="19" width="12" height="8" rx="2" fill="#c62828"/>
+  <!-- Rear window -->
+  <rect x="14" y="28" width="12" height="4" rx="1.5" fill="#90caf9"/>
+  <!-- Headlights -->
+  <circle cx="14" cy="5.5" r="1.6" fill="#fff59d"/>
+  <circle cx="26" cy="5.5" r="1.6" fill="#fff59d"/>
+  <!-- Racing stripe -->
+  <rect x="19" y="3.5" width="2" height="8" fill="#ffffff"/>
+</svg>

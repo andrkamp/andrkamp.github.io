@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Asphalt road tile -->
+  <rect width="40" height="40" fill="#555b61"/>
+  <!-- Little stones for texture -->
+  <circle cx="7" cy="9" r="1" fill="#6b7177"/>
+  <circle cx="30" cy="6" r="0.8" fill="#4a4f54"/>
+  <circle cx="18" cy="21" r="1" fill="#6b7177"/>
+  <circle cx="33" cy="28" r="1.1" fill="#4a4f54"/>
+  <circle cx="10" cy="33" r="0.9" fill="#6b7177"/>
+  <circle cx="24" cy="36" r="0.7" fill="#4a4f54"/>
+</svg>

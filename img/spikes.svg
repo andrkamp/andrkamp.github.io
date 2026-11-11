@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Metal spikes (transparent background, drawn on top of grass) -->
+  <!-- Base plate -->
+  <rect x="2" y="30" width="36" height="6" rx="1.5" fill="#424242"/>
+  <!-- Spikes -->
+  <path d="M3 30 L8 8 L13 30 Z" fill="#b0bec5" stroke="#37474f" stroke-width="1"/>
+  <path d="M13 30 L20 4 L27 30 Z" fill="#cfd8dc" stroke="#37474f" stroke-width="1"/>
+  <path d="M27 30 L32 8 L37 30 Z" fill="#b0bec5" stroke="#37474f" stroke-width="1"/>
+  <!-- Red danger tips -->
+  <path d="M7 12 L8 8 L9 12 Z M19 8 L20 4 L21 8 Z M31 12 L32 8 L33 12 Z" fill="#e53935"/>
+</svg>
