@@ -47,7 +47,30 @@
       <div class="game">
 <img src="https://www.minikoyuncu.org/wp-content/uploads/2025/11/thief-puzzle.png" alt="thief puzzle image">
 <a href="https://www.crazygames.com/game/thief-puzzle" title="thief puzzle website">thief puzzle</a>
-    <h3>My games will come in 6 months</h3>
+        <!-- Car Maze game (code in maze-game.js, pictures in the images folder) -->
+    <h2>Car Maze</h2>
+    <div class="maze-game">
+      <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys or W A S D. On a phone, use the arrow buttons under the game.</p>
+
+      <div class="maze-bar">
+        <button type="button" id="maze-start">Start</button>
+        <span id="maze-timer">Time: 0.0 s</span>
+        <span id="maze-best"></span>
+      </div>
+
+      <canvas id="maze-canvas" width="480" height="560" role="img" aria-label="Car maze game board"></canvas>
+
+      <p id="maze-status" aria-live="polite">Press Start to play.</p>
+
+      <div class="maze-pad" role="group" aria-label="Driving buttons">
+        <button type="button" data-dir="up" aria-label="Drive up">&#9650;</button>
+        <button type="button" data-dir="left" aria-label="Drive left">&#9664;</button>
+        <button type="button" data-dir="down" aria-label="Drive down">&#9660;</button>
+        <button type="button" data-dir="right" aria-label="Drive right">&#9654;</button>
+      </div>
+    </div>
+        
+    <p>More games coming soon...</p>
   </section>
 
   <!-- Videos tab -->
@@ -146,6 +169,9 @@
   <h4>ver 1.8 &mdash; tabs for games, videos, code, articles, acknowledgements,feedback +other links</h4>
   <!-- Tab switching code lives in tabs.js (same folder as this page) -->
   <script src="tabs.js"></script>
+  
+  <!-- Car Maze game code lives in maze-game.js (same folder as this page) -->
+  <script src="maze-game.js"></script>
     
   <!-- Background music: hidden player, no controls shown -->
   <audio id="bg-music" src="background-music.mp3" autoplay loop preload="auto"></audio>
