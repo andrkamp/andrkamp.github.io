@@ -30,13 +30,14 @@
       <h3>Car Maze</h3>
       <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys on your keyboard to drive.</p>
 
+      <canvas id="maze-canvas" width="800" height="360" role="img" aria-label="Car maze game board"></canvas>
+
+      <!-- Start button, timer and game messages sit below the board -->
       <div class="maze-bar">
         <button type="button" id="maze-start">Start</button>
         <span id="maze-timer">Time: 0.0 s</span>
         <span id="maze-best"></span>
       </div>
-
-      <canvas id="maze-canvas" width="480" height="560" role="img" aria-label="Car maze game board"></canvas>
 
       <p id="maze-status" aria-live="polite">Press Start to play.</p>
     </div>
@@ -164,7 +165,7 @@
     </div>
   </section>
 
-  <h4>ver 1.9 &mdash; car maze game at the top of games + fixed layout</h4>
+  <h4>ver 2.0 &mdash; wider, shorter car maze with controls below the board</h4>
 
   <!-- Tab switching code lives in tabs.js (same folder as this page) -->
   <script src="tabs.js"></script>
