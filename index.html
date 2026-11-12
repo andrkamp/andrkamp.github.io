@@ -17,8 +17,7 @@
     <button role="tab" id="tab-code" aria-controls="panel-code" aria-selected="false" tabindex="-1">Code</button>
     <button role="tab" id="tab-articles+math" aria-controls="panel-articles+math" aria-selected="false" tabindex="-1">Articles+math</button>
     <button role="tab" id="tab-acknowledgements" aria-controls="panel-acknowledgements" aria-selected="false" tabindex="-1">Acknowledgements</button>
-        <button role="tab" id="tab-my games" aria-controls="panel-my games" aria-selected="false" tabindex="-1">my games</button>
-  </div>
+    </div>
 
   <!-- Games tab -->
   <section class="panel" id="panel-games" role="tabpanel" aria-labelledby="tab-games" tabindex="0">
@@ -53,7 +52,25 @@
     <div class="game">
       <p><strong><a href="https://jackburkes.com/" target="_blank" rel="noopener noreferrer" title="Jack B.'s website">Jack B.'s game website</a></strong>.</p>
     </div>
+<h2>my games</h2>
+      <div class="maze-game">
+      <h3>Car Maze</h3>
+      <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys on your keyboard to drive.</p>
 
+      <canvas id="maze-canvas" width="800" height="360" role="img" aria-label="Car maze game board"></canvas>
+
+      <!-- Start button, timer and game messages sit below the board -->
+      <div class="maze-bar">
+        <button type="button" id="maze-start">Start</button>
+        <span id="maze-timer">Time: 0.0 s</span>
+        <span id="maze-best"></span>
+      </div>
+
+      <p id="maze-status" aria-live="polite">Press Start to play.</p>
+    </div>
+
+   <script src="tabs.js"></script>
+    <script src="maze-game.js"></script>
     <p>More games coming soon...</p>
   </section>
 
@@ -139,28 +156,11 @@
   </section>
 
   <h4>ver 2.0 &mdash; my games</h4>
-<!--my games tab-->
-  <section class="panel" id="panel-my games" role="tabpanel" aria-labelledby="tab-my games" tabindex="0" hidden>
+
+  
              <!-- Car Maze game (code in maze-game.js, pictures in the img folder) -->
-    <div class="maze-game">
-      <h3>Car Maze</h3>
-      <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys on your keyboard to drive.</p>
+  
 
-      <canvas id="maze-canvas" width="800" height="360" role="img" aria-label="Car maze game board"></canvas>
-
-      <!-- Start button, timer and game messages sit below the board -->
-      <div class="maze-bar">
-        <button type="button" id="maze-start">Start</button>
-        <span id="maze-timer">Time: 0.0 s</span>
-        <span id="maze-best"></span>
-      </div>
-
-      <p id="maze-status" aria-live="polite">Press Start to play.</p>
-    </div>
-
-   <script src="tabs.js"></script>
-    <script src="maze-game.js"></script>
-   </section>
   <!-- Background music: hidden player, no controls shown -->
   <audio id="bg-music" src="background-music.mp3" autoplay loop preload="auto"></audio>
 
