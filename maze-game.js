@@ -10,6 +10,7 @@
   var startBtn = document.getElementById('maze-start');
   var timerEl = document.getElementById('maze-timer');
   var bestEl = document.getElementById('maze-best');
+  var tokensEl = document.getElementById('maze-tokens');
   var statusEl = document.getElementById('maze-status');
 
   // ----- The maze -----
@@ -159,6 +160,22 @@
     bestEl.textContent = best ? 'Best: ' + best.toFixed(1) + ' s' : '';
   }
 
+  // ----- Tokens (kept in the browser's localStorage, like the best time) -----
+  var TOKENS_FOR_FINISH = 5;     // every time the maze is finished
+  var TOKENS_FOR_NEW_BEST = 10;  // extra, every time the best time improves
+
+  function loadTokens() {
+    try { return parseInt(localStorage.getItem('carMazeTokens'), 10) || 0; } catch (e) { return 0; }
+  }
+
+  function saveTokens(count) {
+    try { localStorage.setItem('carMazeTokens', String(count)); } catch (e) { /* storage blocked */ }
+  }
+
+  function showTokens() {
+    if (tokensEl) { tokensEl.textContent = 'Tokens: ' + loadTokens(); }
+  }
+
   // ----- Game flow -----
   function clearKeys() {
     keys.up = false;
@@ -205,8 +222,11 @@
     var best = loadBest();
     var newBest = !best || seconds < best;
     if (newBest) { saveBest(seconds); }
+    var earned = TOKENS_FOR_FINISH + (newBest ? TOKENS_FOR_NEW_BEST : 0);
+    saveTokens(loadTokens() + earned);
     showBest();
-    endGame('You made it in ' + seconds.toFixed(1) + ' seconds!' + (newBest ? ' New best time!' : ''), 'Play again', true);
+    showTokens();
+    endGame('You made it in ' + seconds.toFixed(1) + ' seconds!' + (newBest ? ' New best time!' : '') + ' You earned ' + earned + ' tokens.', 'Play again', true);
   }
 
   function loop(now) {
@@ -266,5 +286,6 @@
   startBtn.addEventListener('click', startGame);
 
   showBest();
+  showTokens();
   draw();
 })();
