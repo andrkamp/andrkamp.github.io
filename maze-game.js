@@ -11,6 +11,7 @@
   var timerEl = document.getElementById('maze-timer');
   var bestEl = document.getElementById('maze-best');
   var tokensEl = document.getElementById('maze-tokens');
+  var removeSpikesBtn = document.getElementById('maze-remove-spikes');
   var statusEl = document.getElementById('maze-status');
 
   // ----- The maze -----
@@ -73,11 +74,22 @@
   var startTime = 0;
   var lastFrame = 0;
 
+  // Spikes are bought away with the "Remove spikes" button. They stay
+  // removed until the page is reloaded.
+  var spikesRemoved = false;
+
+  // Which wall squares are spikes (the rest are trees).
+  function isSpike(row, col) {
+    return MAP[row].charAt(col) === '#' && (row * 7 + col * 3) % 5 === 0;
+  }
+
   // What is on the map at this pixel? Outside the board counts as a wall.
+  // Once the spikes are removed, spike squares become grass ('g') you can drive on.
   function tileAt(px, py) {
     var col = Math.floor(px / TILE);
     var row = Math.floor(py / TILE);
     if (row < 0 || row >= ROWS || col < 0 || col >= COLS) { return '#'; }
+    if (spikesRemoved && isSpike(row, col)) { return 'g'; }
     return MAP[row].charAt(col);
   }
 
@@ -111,8 +123,13 @@
         var y = row * TILE;
         if (ch === '#') {
           paint(images.grass, x, y, '#4caf50');
-          // Mix trees and spikes so the edges look dangerous
-          paint((row * 7 + col * 3) % 5 === 0 ? images.spikes : images.tree, x, y, null);
+          // Mix trees and spikes so the edges look dangerous.
+          // Removed spikes leave plain grass behind.
+          if (!isSpike(row, col)) {
+            paint(images.tree, x, y, null);
+          } else if (!spikesRemoved) {
+            paint(images.spikes, x, y, null);
+          }
         } else {
           paint(images.road, x, y, '#555b61');
           if (ch === 'G') { paint(images.finish, x, y, '#ffffff'); }
@@ -174,6 +191,25 @@
 
   function showTokens() {
     if (tokensEl) { tokensEl.textContent = 'Tokens: ' + loadTokens(); }
+  }
+
+  // ----- Shop: remove the spikes -----
+  var REMOVE_SPIKES_COST = 10;  // tokens taken away when you buy it
+
+  function removeSpikes() {
+    if (spikesRemoved) { return; }
+    var tokens = loadTokens();
+    if (tokens < REMOVE_SPIKES_COST) {
+      statusEl.textContent = 'sorry you need ' + REMOVE_SPIKES_COST + ' tokens for that';
+      return;
+    }
+    saveTokens(tokens - REMOVE_SPIKES_COST);
+    showTokens();
+    spikesRemoved = true;
+    removeSpikesBtn.disabled = true;
+    removeSpikesBtn.textContent = 'Spikes removed';
+    statusEl.textContent = 'Spikes removed! You can drive on the grass where they were. Trees still crash you.';
+    draw();
   }
 
   // ----- Game flow -----
@@ -284,6 +320,7 @@
   window.addEventListener('blur', clearKeys);
 
   startBtn.addEventListener('click', startGame);
+  if (removeSpikesBtn) { removeSpikesBtn.addEventListener('click', removeSpikes); }
 
   showBest();
   showTokens();
