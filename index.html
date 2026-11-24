@@ -76,6 +76,7 @@
       <div class="maze-game">
       <h3>Car Maze</h3>
       <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys on your keyboard to drive. You get 5 tokens every time you reach the checkered flag, plus 10 more every time you beat your best time. </p>
+      <p><strong>Remove spikes:</strong> press the "Remove spikes" button to spend 10 tokens and turn every spike into grass you can drive on. Trees still crash you. The spikes come back when you reload the page.</p>
 
       <canvas id="maze-canvas" width="800" height="360" role="img" aria-label="Car maze game board"></canvas>
 
@@ -85,6 +86,9 @@
         <span id="maze-timer">Time: 0.0 s</span>
         <span id="maze-best"></span>
         <span id="maze-tokens">Tokens: 0</span>
+      </div>
+      <div class="maze-bar">
+        <button type="button" id="maze-remove-spikes">Remove spikes</button>
       </div>
 
       <p id="maze-status" aria-live="polite">Press Start to play.</p>
