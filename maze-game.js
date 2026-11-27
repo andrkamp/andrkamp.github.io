@@ -11,7 +11,9 @@
   var timerEl = document.getElementById('maze-timer');
   var bestEl = document.getElementById('maze-best');
   var tokensEl = document.getElementById('maze-tokens');
-  var removeSpikesBtn = document.getElementById('maze-remove-spikes');
+  // There can be more than one "Remove spikes" button (Games tab and Shop tab)
+  var removeSpikesBtns = document.querySelectorAll('#maze-remove-spikes');
+  var resetBtn = document.getElementById('maze-reset');
   var statusEl = document.getElementById('maze-status');
 
   // ----- The maze -----
@@ -75,7 +77,7 @@
   var lastFrame = 0;
 
   // Spikes are bought away with the "Remove spikes" button. They stay
-  // removed until the page is reloaded.
+  // removed until "Reset maze" is pressed or the page is reloaded.
   var spikesRemoved = false;
 
   // Which wall squares are spikes (the rest are trees).
@@ -206,9 +208,36 @@
     saveTokens(tokens - REMOVE_SPIKES_COST);
     showTokens();
     spikesRemoved = true;
-    removeSpikesBtn.disabled = true;
-    removeSpikesBtn.textContent = 'Spikes removed';
+    setRemoveSpikesButtons(true, 'Spikes removed');
     statusEl.textContent = 'Spikes removed! You can drive on the grass where they were. Trees still crash you.';
+    draw();
+  }
+
+  function setRemoveSpikesButtons(disabled, text) {
+    for (var i = 0; i < removeSpikesBtns.length; i++) {
+      removeSpikesBtns[i].disabled = disabled;
+      removeSpikesBtns[i].textContent = text;
+    }
+  }
+
+  // ----- Reset: put the spikes back -----
+  // Brings back every spike and tree and turns "Remove spikes" back on.
+  // Tokens and the best time are NOT changed.
+  function resetMaze() {
+    spikesRemoved = false;
+    setRemoveSpikesButtons(false, 'Remove spikes');
+    // Stop any run and put the car back at the start, so it isn't
+    // suddenly sitting on a spike that just came back.
+    playing = false;
+    clearKeys();
+    crashed = false;
+    car.x = start.x;
+    car.y = start.y;
+    car.angle = 0;
+    startBtn.disabled = false;
+    startBtn.textContent = 'Start';
+    showTime(0);
+    statusEl.textContent = 'Maze reset. The spikes are back. Press Start to play.';
     draw();
   }
 
@@ -320,7 +349,10 @@
   window.addEventListener('blur', clearKeys);
 
   startBtn.addEventListener('click', startGame);
-  if (removeSpikesBtn) { removeSpikesBtn.addEventListener('click', removeSpikes); }
+  for (var b = 0; b < removeSpikesBtns.length; b++) {
+    removeSpikesBtns[b].addEventListener('click', removeSpikes);
+  }
+  if (resetBtn) { resetBtn.addEventListener('click', resetMaze); }
 
   showBest();
   showTokens();
