@@ -97,7 +97,7 @@
       <div class="maze-game">
       <h3>Car Maze</h3>
       <p>Drive the car from the bottom to the checkered flag at the top. Don't touch the trees or spikes! Use the arrow keys on your keyboard to drive. You get 5 tokens every time you reach the checkered flag, plus 10 more every time you beat your best time. </p>
-      <p><strong>Remove spikes:</strong> press the "Remove spikes" button to spend 10 tokens and turn every spike into grass you can drive on. Trees still crash you. The spikes come back when you reload the page.</p>
+      <p><strong>Remove spikes:</strong> press the "Remove spikes" button to spend 10 tokens and turn every spike into grass you can drive on. Trees still crash you. Press "Reset maze" to bring the spikes back and turn the "Remove spikes" button on again. Resetting keeps your tokens and best time, and it does not give back the 10 tokens.</p>
 
       <canvas id="maze-canvas" width="800" height="360" role="img" aria-label="Car maze game board"></canvas>
 
@@ -110,6 +110,7 @@
       </div>
       <div class="maze-bar">
         <button type="button" id="maze-remove-spikes">Remove spikes</button>
+        <button type="button" id="maze-reset">Reset maze</button>
       </div>
 
       <p id="maze-status" aria-live="polite">Press Start to play.</p>
@@ -230,7 +231,7 @@
 <h1>spend toekens</h1>
   <p>toatal toekens:</p>
   <p>maze game:</p>
-    <p><strong>Remove spikes:</strong> press the "Remove spikes" button to spend 10 tokens and turn every spike into grass you can drive on. Trees still crash you. The spikes come back when you reload the page.</p>
+    <p><strong>Remove spikes:</strong> press the "Remove spikes" button to spend 10 tokens and turn every spike into grass you can drive on. Trees still crash you. Press "Reset maze" to bring the spikes back and turn the "Remove spikes" button on again. Resetting keeps your tokens and best time, and it does not give back the 10 tokens.</p>
 
       <div class="maze-bar">
         <button type="button" id="maze-remove-spikes">Remove spikes</button>
